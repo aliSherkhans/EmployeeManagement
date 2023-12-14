@@ -1,0 +1,35 @@
+[
+
+    {
+        "name" : "hasan ali",
+        "age" : 20,
+        "mobile" : "9610604098",
+        "email" : "hasan2453@gmail.com",
+        "type" : "Developer",
+        "salary" : 10000,
+        "experience" : "Fersher",
+        "address" : "merta city"
+    },
+
+    {
+        "name" : "abbas ali",
+        "age" : 20,
+        "mobile" : "9610604099",
+        "email" : "abbas2453@gmail.com",
+        "type" : "Designer",
+        "salary" : 10000,
+        "experience" : "Fersher",
+        "address" : "Jaipur"
+    },
+
+    {
+        "name" : "Sher mohammad",
+        "age" : 20,
+        "mobile" : "9610604101",
+        "email" : "shermo2453@gmail.com",
+        "type" : "Developer",
+        "salary" : 10000,
+        "experience" : "Fersher",
+        "address" : "karakwal"
+    }
+]
