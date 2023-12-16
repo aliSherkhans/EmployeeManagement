@@ -3,17 +3,17 @@ const CustomError = require("../utils/customError");
 
 //Project Development Error Handler
 const developmentErrors = (error, resp) => {
-  console.log("Dev");
   resp.status(error.statusCode).json({
     status: error.status,
     message: error.message,
     stackTrace: error.stack,
     error,
   });
+  console.log("Dev");
 };
 
 
-const castErrorHamdler = (error) => {
+const castErrorHandler = (error) => {
   const msg = `Invalid value for ${error.path}: ${error.value}`;
   return new CustomError(msg, 400);
 };
@@ -56,7 +56,7 @@ module.exports = function (error, req, resp, next) {
   error.status = error.status || "error";
 
   if (config.NODE_ENV === "production") {
-    if (error.name === "CastError") error = castErrorHamdler(error);
+    if (error.name === "CastError") error = castErrorHandler(error);
     if (error.code === 11000) error = duplicateKeyErrorHandler(error);
     if (error.name === "ValidationError") error = ValidationErrorhandler(error);
 

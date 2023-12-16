@@ -5,7 +5,6 @@ const {
   subAuthVerify,
 } = require("../Controller/authVerification.js");
 
-
 const Router = express.Router();
 
 const subRouter = express.Router();
@@ -20,20 +19,34 @@ Router.route("/get").get(authVerify, employeeController.getAllEmployee);
 Router.route("get/:id").get(authVerify, employeeController.getEmployeeById);
 
 // Search Employees By Name
-Router.route("/search/name/:value").get(authVerify, employeeController.searchEmployeesByName);
+Router.route("/search/name/:value").get(
+  authVerify,
+  employeeController.searchEmployeesByName
+);
 
 // Search Employees By Email
-Router.route("/search/email/:value").get(authVerify, employeeController.searchEmployeesByEmail);
+Router.route("/search/email/:value").get(
+  authVerify,
+  employeeController.searchEmployeesByEmail
+);
 
 // Search Employees By Address
-Router.route("/search/address/:value").get(authVerify, employeeController.searchEmployeesByAddress);
+Router.route("/search/address/:value").get(
+  authVerify,
+  employeeController.searchEmployeesByAddress
+);
 
 // Search Employees By Mobile
-Router.route("/search/mobile/:value").get(authVerify, employeeController.searchEmployeesByMobile);
+Router.route("/search/mobile/:value").get(
+  authVerify,
+  employeeController.searchEmployeesByMobile
+);
 
 // Search Employees By All Fields Name
-Router.route("/search/anyfield/:value").get(authVerify, employeeController.searchEmployees);
-
+Router.route("/search/anyfield/:value").get(
+  authVerify,
+  employeeController.searchEmployees
+);
 
 //Update Employee By Id
 Router.route("/update/:id").put(authVerify, employeeController.updateEmployee);
@@ -51,14 +64,18 @@ Router.use("/subscribe", subRouter);
 subRouter.route("/paysalary").get(subAuthVerify, employeeController.paySalary);
 
 //Get Salary Categary Employees Using Bucket
-subRouter.route("/rights").get(subAuthVerify, employeeController.getEmployeeRights);
+subRouter
+  .route("/rights")
+  .get(subAuthVerify, employeeController.getEmployeeRights);
 
 // Which employees have received salary?
-subRouter.route("/highest-salary-employee").get(subAuthVerify, employeeController.highest_Salary_Employees);
+subRouter
+  .route("/highest-salary-employee")
+  .get(subAuthVerify, employeeController.highest_Salary_Employees);
 
 //Who is employee and what is his role in company?
-subRouter.route("/salary-categary-employees").get(subAuthVerify, employeeController.salary_Categary_Employees);
-
-
+subRouter
+  .route("/salary-categary-employees")
+  .get(subAuthVerify, employeeController.salary_Categary_Employees);
 
 module.exports = Router;
